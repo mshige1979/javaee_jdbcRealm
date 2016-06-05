@@ -1,0 +1,19 @@
+./asadmin create-auth-realm 
+  --classname com.sun.enterprise.security.ee.auth.realm.jdbc.JDBCRealm 
+  --property 
+      jaas-context=jdbcRealm01: 
+datasource-jndi=jdbc/RealmJNDI: 
+user-table=APP.USERTABLE: 
+user-name-column=USERNAME: 
+password-column=PASSWORD: 
+group-table=APP.GROUPTABLE: 
+group-table-user-name-column=USERNAME: 
+group-name-column=GROUPID: 
+digestrealm-password-enc-algorithm=AES: 
+digest-algorithm=SHA-256: 
+encoding=Hex: charset=UTF-8 
+
+jdbc-realm
+
+
+./asadmin set server-config.security-service.activate-defaultprincipal-to-role-mapping=true
